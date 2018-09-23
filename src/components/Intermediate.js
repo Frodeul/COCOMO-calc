@@ -1,6 +1,6 @@
 import React from "react"
-import {PROJECT_TYPE} from "../constants/common"
-import {createResult, findPMbyEAFtypeAndSize, findTMbyTypeAndPM, getCDeaf} from "../common/utils"
+import {PROJECT_TYPE, RESULT_NAMES} from "../constants/common"
+import {findPMbyEAFtypeAndSize, findTMbyTypeAndPM, getCDeaf} from "../common/utils"
 import {initialDrivers, intermediateData} from "../data/intermediateData"
 import {Sections, Size, SubmitButton, Type} from "./Common"
 
@@ -34,8 +34,13 @@ export class Intermediate extends React.Component {
 
     calculate = () => {
         const {type, size, costDrivers} = this.state
-        const PM = findPMbyEAFtypeAndSize(getCDeaf(costDrivers), type, size)
-        return createResult(PM, findTMbyTypeAndPM(type, PM))
+        const CD = getCDeaf(costDrivers)
+        const PM = findPMbyEAFtypeAndSize(CD, type, size)
+        return [
+            {name: RESULT_NAMES.PM, value: PM},
+            {name: RESULT_NAMES.TM, value: findTMbyTypeAndPM(type, PM)},
+            {name: RESULT_NAMES.CD, value: CD}
+        ]
     }
 
     render() {
@@ -45,7 +50,7 @@ export class Intermediate extends React.Component {
                 <SubmitButton className="float-right"/>
                 <Type value={type} handleChange={this.handleChange} TYPE={PROJECT_TYPE}/>
                 <Size value={size} handleChange={this.handleChange}/>
-                <Sections data={intermediateData} values={costDrivers} handleChange={this.handleDriversChange}/>
+                <Sections data={intermediateData} values={costDrivers} handleChange={this.handleDriversChange} label="Факторы затрат"/>
             </form>
         )
     }

@@ -71,8 +71,3 @@ export const getDesignPM = (EAF, SF, size) => EAF * RATE.A.design * Math.pow(siz
 export const getArchitecturePM = (EAF, SF, size) => EAF * RATE.A.architecture * Math.pow(size, getE(SF))
 
 export const getTM_II = (SCED, PMns, E) => SCED * 3.67 * Math.pow(PMns, 0.28 + 0.2 * (E - RATE.B))
-
-export const createResult = (PM, TM) => [
-    {name: "Трудоемкость, чел. мес.", value: PM.toFixed(2)},
-    {name: "Время разработки, мес.", value: TM.toFixed(2)}
-]

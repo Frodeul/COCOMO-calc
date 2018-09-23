@@ -1,6 +1,6 @@
 import React from "react"
-import {createResult, findPMbyTypeAndSize, findTMbyTypeAndPM} from "../common/utils"
-import {PROJECT_TYPE} from "../constants/common"
+import {findPMbyTypeAndSize, findTMbyTypeAndPM} from "../common/utils"
+import {PROJECT_TYPE, RESULT_NAMES} from "../constants/common"
 import {Type, Size, SubmitButton} from "./Common"
 
 
@@ -26,7 +26,10 @@ export class Basic extends React.Component {
     calculate = () => {
         const {type, size} = this.state
         const PM = findPMbyTypeAndSize(type, size)
-        return createResult(PM, findTMbyTypeAndPM(type, PM))
+        return [
+            {name: RESULT_NAMES.PM, value: PM},
+            {name: RESULT_NAMES.TM, value: findTMbyTypeAndPM(type, PM)}
+        ]
     }
 
     render() {

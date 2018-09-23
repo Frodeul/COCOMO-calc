@@ -1,6 +1,5 @@
 import React from "react"
 import {
-    createResult,
     getArchitecturePM,
     getE,
     getSF,
@@ -8,6 +7,7 @@ import {
     getArchitectureEMeaf
 } from "../common/utils"
 import {ARCHITECTURE_EFFORTS_NAMES, ARCHITECTURE_EFFORTS_VALUES} from "../constants/architectureEfforts"
+import {RESULT_NAMES} from "../constants/common"
 import {architectureData, architectureInitialEfforts} from "../data/architectureData"
 import {factorsData, initialFactors} from "../data/factorsData"
 import {ScaleFactors, Sections, Size, SubmitButton} from "./Common"
@@ -54,7 +54,12 @@ export class Architecture extends React.Component {
         const EAFns = getArchitectureEMeaf(effortMultipliers.filter(it => it.name !== ARCHITECTURE_EFFORTS_NAMES.SCED))
         const TM = getTM_II(SCED, getArchitecturePM(EAFns, SF, size), getE(SF))
 
-        return {name: RESULT_NAMES.PM, value: TM.toFixed(2)}
+        return [
+            {name: RESULT_NAMES.PM, value: PM},
+            {name: RESULT_NAMES.TM, value: TM},
+            {name: RESULT_NAMES.SF, value: SF},
+            {name: RESULT_NAMES.EAF, value: EAF}
+        ]
     }
 
     render() {
