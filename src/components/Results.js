@@ -5,7 +5,7 @@ import uuidv4 from "uuid/v4"
 export const Results = ({data}) => (
     <React.Fragment>
         <h3 className="mt-5">Результаты</h3>
-        <table className="table table-hover">
+        <table className="table table-hover results-table">
             <tbody>
             {data.map(it => (
                 <tr key={uuidv4()}>
