@@ -21,7 +21,7 @@ export const Size = ({value, handleChange}) => (
     <div className="form-row">
         <div className="form-group col-md-3">
             <label htmlFor="inputSize">
-                <abbr title="Объем программного продукта в тысячах строк исходного текста">SIZE</abbr>
+                <abbr title="Объем программного продукта в тысячах строк исходного текста">Размер программного кода</abbr>
             </label>
             <input type="number" className="form-control" id="inputSize" name="size" required
                    placeholder="Объем в тысячах строк" value={value} onChange={handleChange} min={1}/>
@@ -62,8 +62,10 @@ export const ScaleFactors = ({data, values, handleChange}) => (
     </React.Fragment>
 )
 
-export const Sections = ({data, values, handleChange}) =>
-    data.map(s => (
+export const Sections = ({data, values, handleChange, label}) =>
+    <React.Fragment>
+        <h3 className="text-center">{label}</h3>
+        {data.map(s => (
         <React.Fragment key={uuidv4()}>
             <h5 className="mt-3 mb-4">{s.label}</h5>
             {s.items.map(row =>
@@ -75,4 +77,5 @@ export const Sections = ({data, values, handleChange}) =>
                 </div>
             )}
         </React.Fragment>)
-    )
+    )}
+    </React.Fragment>

@@ -33,9 +33,9 @@ export class Basic extends React.Component {
         const {size, type} = this.state
         return (
             <form className="mb-4" onSubmit={this.onSubmit}>
+                <SubmitButton className="float-right"/>
                 <Type value={type} handleChange={this.handleChange} TYPE={PROJECT_TYPE}/>
                 <Size value={size} handleChange={this.handleChange}/>
-                <SubmitButton className="mt-5"/>
             </form>
         )
     }

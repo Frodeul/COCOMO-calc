@@ -10,7 +10,7 @@ export const Results = ({data}) => (
             {data.map(it => (
                 <tr key={uuidv4()}>
                     <td>{it.name}</td>
-                    <td>{it.value}</td>
+                    <td>{it.value.toFixed(2)}</td>
                 </tr>
             ))}
             </tbody>

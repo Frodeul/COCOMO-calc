@@ -46,7 +46,6 @@ export class Intermediate extends React.Component {
                 <Type value={type} handleChange={this.handleChange} TYPE={PROJECT_TYPE}/>
                 <Size value={size} handleChange={this.handleChange}/>
                 <Sections data={intermediateData} values={costDrivers} handleChange={this.handleDriversChange}/>
-                <SubmitButton className="btn-block mt-5"/>
             </form>
         )
     }

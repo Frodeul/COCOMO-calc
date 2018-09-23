@@ -54,7 +54,7 @@ export class Architecture extends React.Component {
         const EAFns = getArchitectureEMeaf(effortMultipliers.filter(it => it.name !== ARCHITECTURE_EFFORTS_NAMES.SCED))
         const TM = getTM_II(SCED, getArchitecturePM(EAFns, SF, size), getE(SF))
 
-        return createResult(PM, TM)
+        return {name: RESULT_NAMES.PM, value: TM.toFixed(2)}
     }
 
     render() {
@@ -63,11 +63,10 @@ export class Architecture extends React.Component {
             <form className="mb-4" onSubmit={this.onSubmit}>
                 <SubmitButton className="float-right"/>
                 <Size value={size} handleChange={this.handleChange}/>
-                <Sections data={architectureData} values={effortMultipliers} label="Множители трудоемкости"
-                          handleChange={(e) => this.handleNestedChange("effortMultipliers", e)}/>
                 <ScaleFactors data={factorsData} values={scaleFactors}
                               handleChange={(e) => this.handleNestedChange("scaleFactors", e)}/>
-                <SubmitButton className="btn-block mt-5"/>
+                <Sections data={architectureData} values={effortMultipliers} label="Множители трудоемкости"
+                          handleChange={(e) => this.handleNestedChange("effortMultipliers", e)}/>
             </form>
         )
     }

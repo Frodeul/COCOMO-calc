@@ -7,3 +7,8 @@ export const RATE = {
     },
     B: 0.91
 }
+
+export const RESULT_NAMES = {
+    PM: "Трудоемкость, чел. мес.",
+    TM: "Время разработки, мес."
+}

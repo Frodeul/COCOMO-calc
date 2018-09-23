@@ -57,11 +57,10 @@ export class Design extends React.Component {
             <form className="mb-4" onSubmit={this.onSubmit}>
                 <SubmitButton className="float-right"/>
                 <Size value={size} handleChange={this.handleChange}/>
+                <ScaleFactors data={factorsData} values={scaleFactors}
+                              handleChange={(e) => this.handleNestedChange("scaleFactors", e)}/>
                 <Sections data={designData} values={effortMultipliers} label="Множители трудоемкости"
                           handleChange={(e) => this.handleNestedChange("effortMultipliers", e)}/>
-                <ScaleFactors data={factorsData} values={scaleFactors}
-                          handleChange={(e) => this.handleNestedChange("scaleFactors", e)}/>
-                <SubmitButton className="btn-block mt-5"/>
             </form>
         )
     }
