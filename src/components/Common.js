@@ -63,6 +63,12 @@ export const SubmitButton = ({className}) => (
             onClick={() => window.scroll(0, 0)}>Рассчитать</button>
 )
 
+export const HintButton = ({onClick, className}) => (
+    <button type="button" className={`btn btn-info mb-5 ${className}`} onClick={onClick}>
+        Информация
+    </button>
+)
+
 export const ScaleFactors = ({data, values, handleChange}) => (
     <React.Fragment>
         <h3 className="text-center mb-3 mt-3">Факторы масштаба</h3>
@@ -77,7 +83,7 @@ export const ScaleFactors = ({data, values, handleChange}) => (
     </React.Fragment>
 )
 
-export const Sections = ({data, values, handleChange, label}) =>
+export const Sections = ({data, values, handleChange, label}) => (
     <React.Fragment>
         <h3 className="text-center">{label}</h3>
         {data.map(s => (
@@ -95,3 +101,4 @@ export const Sections = ({data, values, handleChange, label}) =>
             </React.Fragment>)
         )}
     </React.Fragment>
+)

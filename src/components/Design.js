@@ -1,6 +1,6 @@
 import React from "react"
 import uuidv4 from "uuid/v4"
-import {getDesignPM, getE, getDesignEMeaf, getSF, getTM_II, findTMbyTypeAndPM} from "../common/utils"
+import {getDesignEMeaf, getDesignPM, getE, getSF, getTM_II} from "../common/utils"
 import {RESULT_NAMES} from "../constants/common"
 import {DESIGN_EFFORTS_NAMES, DESIGN_EFFORTS_VALUES} from "../constants/designEfforts"
 import {designData, designInitialEfforts} from "../data/designData"
@@ -51,7 +51,9 @@ export class Design extends React.Component {
 
         return [
             {name: RESULT_NAMES.PM, value: PM},
-            {name: RESULT_NAMES.TM, value: TM}
+            {name: RESULT_NAMES.TM, value: TM},
+            {name: RESULT_NAMES.SF, value: SF},
+            {name: RESULT_NAMES.EAF, value: EAF}
         ]
     }
 

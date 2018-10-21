@@ -1,9 +1,29 @@
+html, body, #root {
+    height: 100% !important;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 .container-fluid {
-  padding: 40px 25px 50px;
+    height: 100%;
+}
+
+.content-layout {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 40px 25px 50px;
+    flex: 1 0 auto;
+}
+
+footer {
+    flex: 0 0 auto;
+    padding: 30px 25px 40px;
 }

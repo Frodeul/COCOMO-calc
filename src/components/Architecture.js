@@ -1,11 +1,5 @@
 import React from "react"
-import {
-    getArchitecturePM,
-    getE,
-    getSF,
-    getTM_II,
-    getArchitectureEMeaf
-} from "../common/utils"
+import {getArchitectureEMeaf, getArchitecturePM, getE, getSF, getTM_II} from "../common/utils"
 import {ARCHITECTURE_EFFORTS_NAMES, ARCHITECTURE_EFFORTS_VALUES} from "../constants/architectureEfforts"
 import {RESULT_NAMES} from "../constants/common"
 import {architectureData, architectureInitialEfforts} from "../data/architectureData"

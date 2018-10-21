@@ -20,13 +20,23 @@ class App extends Component {
         const {results} = this.state
         return (
             <div className="container-fluid">
-                <h1 className="text-center mb-5">COCOMO Калькулятор</h1>
-                <div className="row">
-                    <div className="col-4">
-                        <Menu/>
-                        <Results data={results}/>
-                    </div>
-                    <Calc setResults={this.setResults}/>
+                <div className="content-layout">
+                    <main>
+                        <h1 className="text-center mb-5">COCOMO Калькулятор</h1>
+                        <div className="row">
+                            <div className="col-4">
+                                <Menu/>
+                                <Results data={results}/>
+                            </div>
+                            <Calc setResults={this.setResults}/>
+                        </div>
+                    </main>
+                    <footer>
+                        <div className="text-secondary">
+                            <p>© Шарубина А. С. Лабораторный практикум по программной инженерии. ТУСУР, 2018</p>
+                            <p><a href="COCOMO.pdf">Загрузить учебное пособие</a></p>
+                        </div>
+                    </footer>
                 </div>
             </div>
         )
